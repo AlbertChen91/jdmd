@@ -11,8 +11,7 @@ from test import test
 from seq2seq.util.checkpoint import Checkpoint
 
 expt_dir = 'expir'
-check = '2018_06_11_17_51_24'
-checkpoint = os.path.join(expt_dir, Checkpoint.CHECKPOINT_DIR_NAME, check)
+checkpoint = '2018_06_12_21_24_55'
 
 if __name__ == '__main__':
     try:

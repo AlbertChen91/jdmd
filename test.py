@@ -60,13 +60,15 @@ def test(expt_dir, checkpoint, test_file, output_file):
 				output.write(''.join(answer)+'\n')
 
 if __name__ == '__main__':
-	expt_dir = 'expir'
+	expt_dir = 'expir0'
 	checkpoints = os.listdir(os.path.join(expt_dir, Checkpoint.CHECKPOINT_DIR_NAME))
 	test_file = 'data/TestData/questions50.txt'
 	reference_file = 'data/TestData/answers50.txt'
 	for checkpoint in checkpoints:
-		output_file = 'data/TestData/output_%s.txt'%checkpoint
+		output_file = os.path.join(expt_dir, Checkpoint.CHECKPOINT_DIR_NAME, checkpoint, 'output.txt')
 		test(expt_dir, checkpoint, test_file, output_file)
 		delta_bleu = deltaBLEU(output_file, reference_file)
+		with open(os.path.join(expt_dir, Checkpoint.CHECKPOINT_DIR_NAME, 'results.txt'), 'ab') as f:
+			f.write('deltaBLEU at %s: %f'%(checkpoint, delta_bleu)+'\n')
 		print ('deltaBLEU at %s: %f'%(checkpoint, delta_bleu))
 	

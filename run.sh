@@ -1,1 +1,1 @@
-CUDA_VISIBLE_DEVICES=1 python main.py --train_path data/preliminaryData/train.txt --dev_path data/preliminaryData/dev.txt --expt_dir expir --log-level debug
+CUDA_VISIBLE_DEVICES=1 python main.py --train_path data/preliminaryData/train.txt --dev_path data/preliminaryData/dev.txt --expt_dir expir --log-level debug --vacab 30000 --max_len 80 --dim 128 --dec_drop 0.7 --batch 64 --save_per 3000 --print_per 1000 --epoch 4 --teacher_force_r 1.0
